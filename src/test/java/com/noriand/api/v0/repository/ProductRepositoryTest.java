@@ -15,14 +15,8 @@ class ProductRepositoryTest {
 	@Test
 	void test() {
 		Product product1 = productRepository.findById(16L).orElseThrow(null);
-		Product product2 = new Product();
 		product1 = productRepository.findById(16L).orElseThrow(null);
-		
-		if(product1 == product2) {
-			System.out.println("같음");
-		} else {
-			System.out.println("다름");
-		}
+
 		
 		
 	}
