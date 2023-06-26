@@ -14,11 +14,6 @@ jwt:
   secret: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALaw0slD+0sRiDw4NEi0uIS88FQ5WPBSxBgjFzOK4TWjGVehHHVSNOOvMBNFMCyMhkXkgDgQArwjIKSGptK7MY0CAwEAAQ==
   
 spring:
-  thymeleaf:
-    prefix: classpath:templates/
-    suffix: .html
-    check-template-location: true
-    mode: HTML
   redis:
     lettuce:
       pool:
@@ -52,10 +47,8 @@ spring:
 #  sql:
 #    init:
 #      mode: always
-#      schema-locations:
-#      - classpath:
 #      data-locations:
-#      - classpath:
+#      - classpath:static/erd/insert.sql
 #      continue-on-error: true
 server:
   port: 8081
