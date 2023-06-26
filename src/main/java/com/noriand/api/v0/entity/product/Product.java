@@ -21,8 +21,7 @@ import lombok.ToString;
 @Getter
 @SequenceGenerator(name = "product_SEQ_gen"		,
 				   sequenceName = "product_SEQ" ,
-				   allocationSize = 1			,
-				   initialValue = 1)
+				   allocationSize = 1)
 				   
 @Entity
 public class Product {
