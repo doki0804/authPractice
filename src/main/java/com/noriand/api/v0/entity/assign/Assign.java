@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @SequenceGenerator(name = "assign_SEQ_gen"	  	,
 				   sequenceName = "assign_SEQ"	,
-				   initialValue = 1				,
 				   allocationSize = 1)
 @Entity
 public class Assign {

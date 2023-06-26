@@ -20,7 +20,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @SequenceGenerator(name = "order_SEQ_gen"	  	,
 				   sequenceName = "order_SEQ"	,
-				   initialValue = 1				,
 				   allocationSize = 1)
 @Table(name = "orders")
 @Entity

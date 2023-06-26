@@ -26,7 +26,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @SequenceGenerator(name = "OrderItem_SEQ_gen"    ,
 				   sequenceName = "OrderItem_SEQ",
-				   initialValue = 1				 ,
 				   allocationSize = 1)
 @Entity
 public class OrderItem {
@@ -36,7 +35,7 @@ public class OrderItem {
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "order_id")
+	@JoinColumn(name = "orders_id")
 	private Order order;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
