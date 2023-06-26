@@ -5,18 +5,18 @@ drop table orders cascade constraints;
 drop table product cascade constraints;
 drop table users cascade constraints;
 drop table users_roles cascade constraints;
-drop sequence assign_seq;
-drop sequence customer_seq;
-drop sequence order_seq;
-drop sequence order_item_seq;
-drop sequence product_seq;
+drop sequence assign_id_seq;
+drop sequence customer_id_seq;
+drop sequence order_id_seq;
+drop sequence order_item_id_seq;
+drop sequence product_id_seq;
 drop sequence users_id_seq;
 
-create sequence assign_seq start with 1 increment by  1;
-create sequence customer_seq start with 1 increment by  1;
-create sequence order_seq start with 1 increment by  1;
-create sequence order_item_seq start with 1 increment by  1;
-create sequence product_seq start with 1 increment by  1;
+create sequence assign_id_seq start with 1 increment by  1;
+create sequence customer_id_seq start with 1 increment by  1;
+create sequence order_id_seq start with 1 increment by  1;
+create sequence order_item_id_seq start with 1 increment by  1;
+create sequence product_id_seq start with 1 increment by  1;
 create sequence users_id_seq start with 1 increment by  1;
 
 create table assign (
@@ -87,25 +87,26 @@ create table users_roles (
                              roles varchar2(255 char)
 )
 
-alter table users
-    add constraint UK_6efs5vmce86ymf5q7lmvn2uuf unique (user_id)
-
-alter table order_item
-    add constraint FK983cvgn2yeo3724p74o49hqge
-        foreign key (customer_id)
-            references customer
-
-alter table order_item
-    add constraint FKt4dc2r9nbvbujrljv3e23iibt
-        foreign key (order_id)
-            references orders
-
-alter table order_item
-    add constraint FK551losx9j75ss5d6bfsqvijna
-        foreign key (product_id)
-            references product
-
-alter table users_roles
-    add constraint FKml90kef4w2jy7oxyqv742tsfc
-        foreign key (users_id)
-            references users
+    
+    alter table users 
+       add constraint UK_6efs5vmce86ymf5q7lmvn2uuf unique (user_id)
+    
+    alter table order_item 
+       add constraint FK983cvgn2yeo3724p74o49hqge 
+       foreign key (customer_id) 
+       references customer
+    
+    alter table order_item 
+       add constraint FKea29bb770t1s99pp2ngvhgwnt 
+       foreign key (orders_id) 
+       references orders
+    
+    alter table order_item 
+       add constraint FK551losx9j75ss5d6bfsqvijna 
+       foreign key (product_id) 
+       references product
+    
+    alter table users_roles 
+       add constraint FKml90kef4w2jy7oxyqv742tsfc 
+       foreign key (users_id) 
+       references users

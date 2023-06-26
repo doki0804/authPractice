@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,14 +16,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@SequenceGenerator(name = "assign_SEQ_gen"	  	,
-				   sequenceName = "assign_SEQ"	,
+@SequenceGenerator(name = "assign_id_SEQ_gen"	  	,
+				   sequenceName = "assign_id_SEQ"	,
 				   allocationSize = 1)
 @Entity
+@Table(name = "assign")
 public class Assign {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "assign_SEQ_gen")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "assign_id_SEQ_gen")
 	private Long id;
 	
 }

@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.noriand.api.v0.entity.customer.Customer;
-import com.noriand.api.v0.entity.order.Order;
+import com.noriand.api.v0.entity.order.Orders;
 import com.noriand.api.v0.entity.product.Product;
 import com.noriand.api.v0.repository.customer.CustomerRepository;
 import com.noriand.api.v0.repository.order.OrderRepository;
@@ -38,6 +38,7 @@ class ProductRepositoryTest {
 //		Order order = orderRepository.findById(2L).orElseThrow(null);
 //		System.out.println(order.toString());
 		Customer customer = customerRepository.findById(1L).orElse(null);
+		System.out.println(customer);
 //		Customer customer= Customer.builder().id(1L)
 //				
 //									.cName("테스트1")

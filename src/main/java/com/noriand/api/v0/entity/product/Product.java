@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,15 +18,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Getter
-@SequenceGenerator(name = "product_SEQ_gen"		,
-				   sequenceName = "product_SEQ" ,
+@SequenceGenerator(name = "product_id_SEQ_gen"		,
+				   sequenceName = "product_id_SEQ" ,
 				   allocationSize = 1)
 				   
 @Entity
+@Table(name = "product")
 public class Product {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_SEQ_gen")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_id_SEQ_gen")
 	private Long id;
 	
 	private String pName;

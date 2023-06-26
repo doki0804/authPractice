@@ -18,15 +18,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@SequenceGenerator(name = "order_SEQ_gen"	  	,
-				   sequenceName = "order_SEQ"	,
+@SequenceGenerator(name = "orders_id_SEQ_gen"	  	,
+				   sequenceName = "orders_id_SEQ"	,
 				   allocationSize = 1)
-@Table(name = "orders")
 @Entity
-public class Order {
+@Table(name = "orders")
+public class Orders {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_SEQ_gen")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orders_id_SEQ_gen")
 	private Long id;
 	
 	private Integer orderNumber;

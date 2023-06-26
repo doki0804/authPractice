@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 import com.noriand.api.v0.entity.customer.Customer;
 import com.noriand.api.v0.entity.product.Product;
@@ -24,32 +25,34 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@SequenceGenerator(name = "OrderItem_SEQ_gen"    ,
-				   sequenceName = "OrderItem_SEQ",
+@SequenceGenerator(name = "OrderItem_id_SEQ_gen"    ,
+				   sequenceName = "OrderItem_id_SEQ",
 				   allocationSize = 1)
 @Entity
+@Table(name = "order_item")
 public class OrderItem {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "OrderItem_SEQ_gen")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "OrderItem_id_SEQ_gen")
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "orders_id")
-	private Order order;
+	private Orders orders;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
 	private Product product;
 
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "customer_id")
+	private Customer customer;
+	
 	// 상품수량
 	private Integer oiQty;
 
 	// 주문단위
 	private String orderUnit;
-
-	@ManyToOne
-	private Customer customer;
 
 	// 출고일
 	private LocalDateTime shippingDate;
